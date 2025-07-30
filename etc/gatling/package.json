@@ -1,0 +1,28 @@
+{
+  "name": "gatling-for-ace",
+  "version": "0.0.1",
+  "private": true,
+  "description": "App for running simple performance tests with Gatling",
+  "type": "module",
+  "main": "target/bundle",
+  "dependencies": {
+    "@gatling.io/core": "3.14.303",
+    "@gatling.io/http": "3.14.303",
+    "dotenv": "^16.4.5",
+    "cross-env": "^7.0.3"
+  },
+  "devDependencies": {
+    "@gatling.io/cli": "3.14.303",
+    "@types/node": "^24.0.3",
+    "prettier": "^3.5.3",
+    "rimraf": "6.0.1",
+    "typescript": "5.8.3"
+  },
+  "scripts": {
+    "clean": "rimraf target",
+    "format": "cross-env node_modules/prettier/bin/prettier.cjs --write \"**/*.ts\"",
+    "check": "cross-env node_modules/typescript/bin/tsc --noEmit",
+    "build": "cross-env node_modules/typescript/bin/tsc --noEmit && gatling build --typescript",
+    "bookshop": "cross-env node_modules/typescript/bin/tsc --noEmit && npx gatling run --typescript --simulation bookshop"
+  }
+}

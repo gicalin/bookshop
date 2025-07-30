@@ -1,0 +1,60 @@
+{
+  "name": "bookshop",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@cap-js/hana": "^2",
+    "@sap/cds": "^9",
+    "@sap/cds-mtxs": "^3",
+    "@sap/xssec": "^4",
+    "express": "^4"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^2"
+  },
+  "scripts": {
+    "start": "cds-serve"
+  },
+  "sapux": [
+    "app/admin-books",
+    "app/browse"
+  ],
+  "cds": {
+    "profile": "with-mtx-sidecar",
+    "requires": {
+      "[production]": {
+        "multitenancy": true,
+        "auth": "xsuaa"
+      },
+      "[local-multitenancy]": {
+        "multitenancy": true
+      }
+    },
+      "log": {
+        "levels": {
+        "cds": "info",
+        "cli": "info",
+        "build": "info",
+        "app": "info",
+        "db": "info",
+        "sql": "info",
+        "hana": "info",
+        "pool": "info",
+        "messaging": "info",
+        "remote": "info",
+        "telemetry": "info",
+        "odata": "debug",
+        "rest": "info",
+        "auth": "info",
+        "deploy": "info",
+        "mtx": "debug"
+        }
+      }
+  }
+}
